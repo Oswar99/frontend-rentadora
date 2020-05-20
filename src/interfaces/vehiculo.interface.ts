@@ -9,4 +9,6 @@ export interface IVehiculo{
     No_Serie: string;
     Precio_Renta: Number;
     Sucursal: ISucursal;
+    Imagen: string;
+    Descripcion: string;
 }
