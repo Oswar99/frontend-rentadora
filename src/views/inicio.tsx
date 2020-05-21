@@ -34,7 +34,7 @@ const Inicio: React.FC = () => {
                 <div className="row text-center">
                     {vehiculosLista.map((veh: IVehiculo, index) => (
                         <CardVehiculo 
-                            imagen = "https://www.kissu.com.ec/img/miniaturas/Q4uf1c8QEf7ckfkuib4t_1562881655.jpg"
+                            imagen = {veh.Imagen}
                             marca = {veh.Marca}
                             modelo = {veh.Modelo}
                             title_button = "Agregar"
