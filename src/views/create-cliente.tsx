@@ -1,12 +1,27 @@
-import React,{useState,useEffect} from "react";
+import React,{useState, useEffect} from "react";
+
+import Header from "../components/header";
 import Footer from "../components/footer";
+import SubHeader from "../components/subheader";
+import ClienteForm from "../components/register";
 
-import {useParams,Redirect} from "react-router-dom";
 
-const create_Cliente: React.FC = () =>{
+const create_client: React.FC = ()=>{
+
     return(
-        <Footer></Footer>
+        <div>
+            <Header></Header>
+            <br />
+            <div className="container">
+                <hr />
+                <SubHeader title="Registrarse"/>
+                <hr />
+                <ClienteForm></ClienteForm>
+            </div>
+            <br />
+            <Footer></Footer>
+        </div>
     )
 }
 
-export default create_Cliente;
+export default create_client;

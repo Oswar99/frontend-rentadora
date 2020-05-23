@@ -25,19 +25,29 @@ const Header: React.FC = () => (
                     </h6>
                     </li>
                     <li className="nav-item">
-                    <h6>
-                        <Link className="nav-link" to="/AboutUs" >Acerca de
-                            <span className="sr-only">(current)</span>
-                        </Link>
-                    </h6>
+                        <h6>
+                            <Link className="nav-link" to="/AboutUs" >Acerca de
+                                <span className="sr-only">(current)</span>
+                            </Link>
+                        </h6>
                     </li>
                     <li className="nav-item">
-                    <h6>
-                        <Link className="nav-link" to="/Login/Cliente" >Iniciar Sesion
-                            <span className="sr-only">(current)</span>
-                        </Link>
-                    </h6>
-                    </li>       
+                        <hr color="gray" style={{width: 2, height: 12}}></hr>
+                    </li>
+                    <li className="nav-item">
+                        <h6>
+                            <Link className="nav-link" to="/Login/Cliente" >Iniciar Sesion
+                                <span className="sr-only">(current)</span>
+                            </Link>
+                        </h6>
+                    </li>  
+                    <li className="nav-item">
+                        <h6>
+                            <Link className="nav-link" to="/clientes/new" >Registrarse
+                                <span className="sr-only">(current)</span>
+                            </Link>
+                        </h6> 
+                    </li>
                 </ul>
                 
             </div>

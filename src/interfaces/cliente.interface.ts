@@ -4,5 +4,5 @@ export interface ICliente{
     Nombre: string;
     Edad: string;
     Sexo: string;
-    VenLic: string;
+    VenLic: Date;
 }

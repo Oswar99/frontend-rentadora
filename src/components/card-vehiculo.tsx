@@ -15,18 +15,17 @@ const CardVehiculo: React.FC<ICardVehiculo> = ({
     modelo,
     title_button
 })=>{
-   
     return(
         <div className="col-lg-3 col-md-6 mb-4">
             <div className="card h-100">
-                <a href="http://localhost:3000/AboutUs">
+                <Link to="/AboutUs">
                     <img
                         src={imagen} 
                         width="250"
                         height="200"
                         
                     />
-                </a>
+                </Link>
                 <div className="card-body">
                     <h4 className="card-title">{marca} {modelo}</h4>
                 </div>

@@ -25,11 +25,8 @@ const AboutUs: React.FC = () => {
                                 title = "Visión:"
                                 body = "Dirigiremos nuestra industria al defender la excelencia del servicio y forjando una lealtad incomparable de parte de los clientes. Permaneciendo a la vanguardia en el suministro de calidad enfocados siempre a satisfaces las necesidades de nuestros clientes."
                             />
-
                         </td>
-
                     </tr>
-                    
                 </table>
                 <table style={{textAlign: "center", width: "100%"}}>
                     <tr>
@@ -37,7 +34,7 @@ const AboutUs: React.FC = () => {
                             <div>
                                 <InfoModal 
                                     title = "Informacion de Contacto"
-                                    body = "Telefono: 2213-1232 EXT. 1214, Email: renta_car@rentadora.hn"
+                                    body = "Nos comprometemos a suministrar a nuestros clientes el mejor nivel de servicio posible."
                                     />
                             </div>
                         </td>
