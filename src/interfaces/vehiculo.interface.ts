@@ -1,6 +1,7 @@
 import { ISucursal } from "./sucursal.interface";
 
 export interface IVehiculo{
+    _id: string;
     Placa: string;
     Tipo: string;
     Marca: string;

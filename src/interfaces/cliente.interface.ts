@@ -5,4 +5,7 @@ export interface ICliente{
     Edad: string;
     Sexo: string;
     VenLic: Date;
+    Correo: string;
+    Contraseña: string;
+    Telefono: number;
 }

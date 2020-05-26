@@ -5,7 +5,7 @@ import SubHeader from "../components/subheader";
 
 import CardLogin from "../components/card-login";
 
-const LoginEmpleado: React.FC = () =>{
+const loginView: React.FC = () =>{
     return(
         <div>
         <Header></Header>
@@ -18,4 +18,4 @@ const LoginEmpleado: React.FC = () =>{
     )
 }
 
-export default LoginEmpleado;
+export default loginView;

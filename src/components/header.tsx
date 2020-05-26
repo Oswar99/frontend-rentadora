@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
+import { getCarrito } from "../services/carrito.service";
 
-const Header: React.FC = () => (
+const Header: React.FC = () => {
+    const [lnk, setLnk] = useState(true);
+    const [perfil, setPerfil] = useState("/");
+    const [carrito, setCarrito] = useState("/login");
+    const [CarritoLista, setCarritoLista] = useState([]);
+
+    
+    useEffect(()=>{  
+        const obj: any = localStorage.getItem("Cliente");
+        const cli: any = JSON.parse(obj);
+        
+        
+        if(localStorage.getItem("Cliente")){
+            getCarrito(cli._id).then( r=>{
+                if(r.data){
+                    setCarritoLista(r.data);
+                }
+            });
+            setLnk(false);
+            setPerfil(`/clientes/update/${cli._id}`);
+            setCarrito(`/carrito/${cli._id}`);
+        }else{
+            setLnk(true);
+        }
+    })
+    return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container">
             <div className="navbar-nav ml-auto">
@@ -19,40 +45,68 @@ const Header: React.FC = () => (
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item active">
                     <h6>
-                        <Link className="nav-link" to="/">Carrito
+                        <Link className="nav-link" to={carrito}>Carrito({CarritoLista.length})
                             <span className="sr-only">(current)</span>
                         </Link>
                     </h6>
                     </li>
-                    <li className="nav-item">
+                    {(CarritoLista.length > 0) && (
+                        <li className="nav-item active">
+                        <h6>
+                            <Link className="nav-link" to={carrito}>Reservar
+                                <span className="sr-only">(current)</span>
+                            </Link>
+                        </h6>
+                        </li>
+                    )}
+                    <li className="nav-item active">
                         <h6>
                             <Link className="nav-link" to="/AboutUs" >Acerca de
                                 <span className="sr-only">(current)</span>
                             </Link>
                         </h6>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item active">
                         <hr color="gray" style={{width: 2, height: 12}}></hr>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item active">
                         <h6>
-                            <Link className="nav-link" to="/Login/Cliente" >Iniciar Sesion
+                        {(lnk) && (
+                            <Link className="nav-link" to="/login" >Iniciar Sesion
                                 <span className="sr-only">(current)</span>
                             </Link>
+                        )}
                         </h6>
                     </li>  
-                    <li className="nav-item">
+                    <li className="nav-item active">
                         <h6>
+                        {(lnk) && (
                             <Link className="nav-link" to="/clientes/new" >Registrarse
                                 <span className="sr-only">(current)</span>
-                            </Link>
-                        </h6> 
+                            </Link>    
+                        )}
+                        {(!lnk) && (
+                            <Link className="nav-link" to={perfil} >Mi Perfil
+                                <span className="sr-only">(current)</span>
+                            </Link>    
+                        )}
+                        </h6>  
+                    </li>
+                    <li>
+                        <h6>
+                        {(!lnk) && (
+                            <Link className="nav-link" to="/login" >Cerrar Sesion
+                                <span className="sr-only">(current)</span>
+                            </Link>    
+                        )}
+                        </h6>
                     </li>
                 </ul>
                 
             </div>
         </div>
     </nav>
-)
+    )
+}
 
 export default Header;

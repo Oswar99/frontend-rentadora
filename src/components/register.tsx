@@ -4,13 +4,15 @@ import {useParams} from "react-router-dom";
 import Modal from "./modal";
 import { postCliente, getCliente, putCliente } from "../services/cliente.service";
 import useFormHelper from "../helpers/useFormHelper";
+import SubHeader from "./subheader";
 
 const ClienteForm: React.FC = ()=>{
     const [cleanUp,setCleanUp] = useState(true);
     const [showmodal,setShowmodal] = useState(false);
     const [submitting,setSubmitting] = useState(false);
     const [message,setMessage] = useState("Esta seguro que desea guardar?");
-    const [completed,setCompleted] = useState(false);
+    const [completed,setCompleted] = useState(false);  
+    const [titleHead, setTitleHead] = useState("Registrarse");
 
     function hideModal(){
         setShowmodal(false);
@@ -75,13 +77,17 @@ const ClienteForm: React.FC = ()=>{
     useEffect(()=>{
         if(id && cleanUp){
           setCleanUp(false);
+          setTitleHead("Modificar Cliente")
           getCliente(id).then(value=>{
             updateValues({
                 Identificacion: value.data.Identificacion,
                 Nombre: value.data.Nombre,
                 Edad: value.data.Edad,
                 Sexo: value.data.Sexo,
-                VenLic: value.data.VenLic
+                VenLic: value.data.VenLic,
+                Correo: value.data.Correo,
+                Contraseña: value.data.Contraseña,
+                Telefono: value.data.Telefono
             });          
           })
         }
@@ -100,6 +106,9 @@ const ClienteForm: React.FC = ()=>{
                 submitting={submitting}
                 completed={completed}
             />
+            <hr />
+                <SubHeader title={titleHead} />
+              <hr />
             <form className="align-items-center" >
                 <div className="form-group">
                     <label htmlFor="IdentificacionGroup">Identificacion: </label>
@@ -156,7 +165,41 @@ const ClienteForm: React.FC = ()=>{
                         defaultValue={values.VenLic}
                     />
                 </div>
-                
+                <SubHeader title="Datos de contacto."></SubHeader>
+                <div className="form-group">
+                    <label htmlFor="CorreoGroup">Correo: </label>
+                    <input 
+                        type= "text"
+                        className="form-control" 
+                        id="CorreoGroup"
+                        onChange={handleChange}
+                        name="Correo"
+                        defaultValue={values.Correo}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="ContraseñaGroup">Contraseña: </label>
+                    <input 
+                        type= "text"
+                        className="form-control" 
+                        id="ContraseñaGroup"
+                        onChange={handleChange}
+                        name="Contraseña"
+                        defaultValue={values.Contraseña}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="TelefonoGroup">Telefono: </label>
+                    <input 
+                        type= "number"
+                        className="form-control" 
+                        id="TelefonoGroup"
+                        onChange={handleChange}
+                        name="Telefono"
+                        defaultValue={values.Telefono}
+                    />
+                </div>
+
             </form>
             <hr />
             <div className="navbar-nav ml-auto">

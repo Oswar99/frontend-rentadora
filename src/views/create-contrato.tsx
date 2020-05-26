@@ -3,18 +3,19 @@ import React,{useState, useEffect} from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import SubHeader from "../components/subheader";
-import ClienteForm from "../components/register";
-import {useParams} from "react-router-dom";
+import ContratoForm from "../components/contratos";
 
-
-const createClient: React.FC = ()=>{
+const create_Contrato: React.FC = ()=>{
 
     return(
         <div>
             <Header></Header>
             <br />
-            <div className="container">       
-                <ClienteForm></ClienteForm>
+            <div className="container">
+                <hr />
+                <SubHeader title="Contrato"/>
+                <hr />
+                <ContratoForm></ContratoForm>
             </div>
             <br />
             <Footer></Footer>
@@ -22,4 +23,4 @@ const createClient: React.FC = ()=>{
     )
 }
 
-export default createClient;
+export default create_Contrato;

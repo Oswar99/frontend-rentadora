@@ -37,3 +37,7 @@ export function getCliente(id:string): Promise<any>{
         .catch(error => resolve( {data: {successed:false}} ) );
     });
 }
+
+export function verifyClient(correo: string, contra: string){
+    return axios.get(`${query}/cliente/verificar/${correo}/${contra}`);
+}
