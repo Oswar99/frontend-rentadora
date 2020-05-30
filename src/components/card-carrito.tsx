@@ -73,6 +73,7 @@ const CardCarrito: React.FC<ICardCarrito> = ({
                 </Link>
                 <div className="card-body">
                     <h4 className="card-title">{vehiculo.Marca} {vehiculo.Modelo}</h4>
+                    <h5 className="card-title">Precio(dia): {vehiculo.Precio_Renta}</h5>
                 </div>
                 <div className="card-footer">
                     {(cliente !== "") &&(

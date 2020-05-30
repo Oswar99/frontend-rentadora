@@ -45,6 +45,7 @@ const Inicio: React.FC = () => {
                             title_button = "Agregar"
                             veh = {veh}
                             cliente={Cliente}
+                            precio = {veh.Precio_Renta}
                         />
                     ))}
                 </div>

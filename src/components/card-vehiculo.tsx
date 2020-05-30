@@ -11,6 +11,7 @@ interface ICardVehiculo{
     modelo: string;
     imagen?: string;
     title_button?: string;
+    precio: Number;
 }
 
 const CardVehiculo: React.FC<ICardVehiculo> = ({
@@ -20,6 +21,7 @@ const CardVehiculo: React.FC<ICardVehiculo> = ({
     marca,
     modelo,
     title_button,
+    precio
 })=>{
     const [carrito, setCarrito] = useState({});
     const [completed, setCompleted]= useState(false);
@@ -52,6 +54,7 @@ const CardVehiculo: React.FC<ICardVehiculo> = ({
                 </Link>
                 <div className="card-body">
                     <h4 className="card-title">{marca} {modelo}</h4>
+                    <h5 className="card-title">Precio(dia): {precio}</h5>
                 </div>
                 <div className="card-footer">
                     {(cliente !== "") &&(

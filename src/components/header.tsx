@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                     {(CarritoLista.length > 0) && (
                         <li className="nav-item active">
                         <h6>
-                            <Link className="nav-link" to={carrito}>Reservar
+                            <Link className="nav-link" to="/reservacion">Reservar
                                 <span className="sr-only">(current)</span>
                             </Link>
                         </h6>

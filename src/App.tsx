@@ -12,6 +12,7 @@ import createCliente from './views/create-cliente';
 import ClientesView from "./views/get-clientes";
 import create_Contrato from "./views/create-contrato";
 import CarritoView from "./views/carrito";
+import ResercacionClient from "./views/reserva";
 
 const App: React.FC = () => (
   <BrowserRouter>
@@ -25,6 +26,7 @@ const App: React.FC = () => (
       <Route path="/carrito/:id" exact component = {CarritoView}/>
       <Route path="/login/:correo/:contra" exact component = {loginView}/>
       <Route path="/AboutUS" exact component = {AboutUs}/>
+      <Route path="/reservacion" exact component = {ResercacionClient} />
       </Switch>
   </BrowserRouter>
   

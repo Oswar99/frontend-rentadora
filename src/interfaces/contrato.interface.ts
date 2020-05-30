@@ -3,7 +3,7 @@ import { ICliente } from "./cliente.interface";
 import { IAccesorio } from "./accesorio.interface";
 
 export interface IContrato{
-    Contrato: string;
+    _id: string;
     Fecha: string;
     Estado: number;
     AbonoPrevio: number;

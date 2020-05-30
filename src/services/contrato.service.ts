@@ -8,11 +8,7 @@ export function getContratos(){
 };
 
 export function postContrato(data:any): Promise<any>{
-    return new Promise<any>( resolve => {
-        axios.post(`${query}/contrato`,data)
-        .then(result => resolve(result) )
-        .catch(error => resolve( {data: {successed:false}} ) );
-    });
+    return axios.post(`${query}/contrato`,data);
 }
 
 export function putContrato(id:string,data:any): Promise<any>{

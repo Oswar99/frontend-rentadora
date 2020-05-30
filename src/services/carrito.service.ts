@@ -21,3 +21,6 @@ export function getCarrito(id:string){
     return axios.get(`${query}/carrito/${id}`);
 }
 
+export function getPrecio(id:string){
+    return axios.get(`${query}/carrito/valor/${id}`);
+}
